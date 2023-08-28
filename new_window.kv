@@ -1,0 +1,2518 @@
+#:import Factory kivy.factory.Factory
+
+<MyPopup>:
+  title: 'Mensaje de Yaiza'
+  size_hint: None, None
+  size: 200, 400
+  BoxLayout:
+    orientation: 'vertical'
+    Label:
+      text: 'Jajajaja\nsé que no debería reírme\npero no puedo\nes risa nerviosa!'
+      font_name: 'NotoSans-Regular'
+      font_size: 14
+      readonly: True
+      valign: 'middle'
+      halign: 'center'
+    Button:
+      size_hint: 0.4, 0.02
+      font_name: 'NotoSans-Regular'
+      pos_hint: {"center_x": 0.5, "top": 0.1}
+      font_size: 14
+      text: 'Cerrar'
+      on_release: root.dismiss()
+
+<MyPopup_3>:
+  title: 'Mensaje de Yaiza'
+  size_hint: None, None
+  size: 200, 400
+  BoxLayout:
+    orientation: 'vertical'
+    Label:
+      text: 'Ay no sé,\ncrees que estoy\nsiendo tacaña??'
+      font_name: 'NotoSans-Regular'
+      font_size: 14
+      readonly: True
+      valign: 'middle'
+      halign: 'center'
+    Button:
+      size_hint: 0.4, 0.02
+      font_name: 'NotoSans-Regular'
+      pos_hint: {"center_x": 0.5, "top": 0.1}
+      font_size: 14
+      text: 'Cerrar'
+      on_release: root.dismiss()
+
+<MyPopup_2>:
+  title: 'Mensaje de Yaiza'
+  size_hint: None, None
+  size: 200, 400
+  BoxLayout:
+    orientation: 'vertical'
+    Label:
+      text: 'Con esto me daría\npara mi cláusula!!'
+      font_name: 'NotoSans-Regular'
+      font_size: 14
+      readonly: True
+      valign: 'middle'
+      halign: 'center'
+    Button:
+      size_hint: 0.4, 0.02
+      font_name: 'NotoSans-Regular'
+      pos_hint: {"center_x": 0.5, "top": 0.1}
+      font_size: 14
+      text: 'Cerrar'
+      on_release: root.dismiss()
+
+<GameOverPopup>:
+  title: 'Mensaje de Yaiza'
+  size_hint: None, None
+  size: 200, 400
+  BoxLayout:
+    orientation: 'vertical'
+    Label:
+      text: 'VE TE!'
+      font_name: 'NotoSans-Regular'
+      font_size: 14
+      readonly: True
+      valign: 'middle'
+      halign: 'center'
+    Button:
+      size_hint: 0.4, 0.02
+      font_name: 'NotoSans-Regular'
+      pos_hint: {"center_x": 0.5, "top": 0.1}
+      font_size: 14
+      text: 'Cerrar'
+      on_release: root.dismiss()
+
+<Button>
+  font_name: 'NotoSans-Bold'
+  font_size: 28
+  size_hint: 0.6, 0.4
+  pos_hint: {'center_x': 0.5}
+  disabled_color: (0, 0, 0, 0.8)
+  background_disabled_normal: ''
+  background_normal: ''
+  background_color: (123/255, 8/255, 1/255, 1)
+  canvas.before:
+    Color:
+      rgba: 0, 0, 0, 1
+    Line:
+      width:2
+      rectangle: self.x, self.y, self.width, self.height
+
+<RoundedButton@Button>
+  font_name: 'NotoSans-Regular'
+  font_size: 28
+  size_hint: 0.6, 0.4
+  pos_hint: {'center_x': 0.5}
+  disabled_color: (0, 0, 0, 0.8)
+  background_disabled_normal: ''
+  background_normal: ''
+  background_color: (123/255, 8/255, 1/255, 1)
+  canvas.before:
+    Color:
+      rgba: 0, 0, 0, 1
+    Line:
+      width:2
+      rounded_rectangle: (self.x, self.y, self.width, self.height, 50, 50, 50, 50)
+  canvas.before:
+    Color:
+      rgba: 0, 0, 0, 1
+    RoundedRectangle:
+      size: self.size
+      pos: self.pos
+      radius: [20,] * 4
+
+<TextInput>
+  halign: 'center'
+  valign: 'center'
+  font_name: 'NotoSans-Bold'
+  size_hint: 0.8, 0.2
+  font_size: 20
+  padding: 6, self.height/2-self.font_size/1.5, 6, 6
+  pos_hint: {'center_x': 0.5}
+  
+<Label>
+  font_name: 'NotoSans-Bold'
+  valign: 'middle'
+  halign: 'center'
+  size_hint: 0.8, 0.2
+  font_size: 20
+  pos_hint: {'center_x': 0.5}
+
+WindowManager:
+  Portada:
+  Ronda1Intro:
+  Ronda1Q0:
+  Ronda1Q1:
+  Ronda1Q2:
+  Ronda1Q3:
+  Ronda1Q4:
+  Ronda2Intro:
+  Ronda2Cazadora:
+  Ronda2Ofertas:
+  Ronda2Q0:
+  Ronda2Q1:
+  Ronda2Q2:
+  Ronda2Q3:
+  Ronda2Q4:
+  Ronda2Q5:
+  Ronda2Q6:
+  Victoria:
+
+<Portada>:
+  name: 'portada'
+  
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 20
+    padding: 50
+
+    Image:
+      source: 'logo-cazador'
+
+    Label:
+      id: passw
+      text: 'Contraseña:' 
+
+    TextInput:
+      id: name_input
+      multiline: False
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size: root.width, 0.05
+      spacing: 20
+
+      Button:
+        text: 'Introducir'
+        size_hint: 0.2, 0.4
+        on_press: root.press()
+
+      Button:
+        id: nex
+        text: 'Continuar'
+        size_hint: 0.2, 0.4
+        disabled: True
+        on_release: 
+          app.root.current = 'ronda1intro'
+          root.manager.transition.direction = 'left'
+
+<Ronda1Intro>:
+  name: 'ronda1intro'
+  
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 20
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      id: name_label
+      size_hint: 0.8, 0.4
+      font_size: 16
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: ''
+
+    Button:
+      text: 'Comenzar'
+      size_hint: 0.8, 0.1
+      on_release: 
+        app.root.current = 'ronda1q0'
+        root.manager.transition.direction = 'left'
+
+<Ronda1Q0>:
+  name: 'ronda1q0'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 10
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: 'Ordena los siguientes conciertos cronológicamente'
+
+    Button:
+      id: q0o0
+      text: 'Morgan, Travis Birds,\n Amaia Santamaría'
+      valign: 'middle'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 0)
+
+    Button:
+      id: q0o1
+      text: 'Amaia Santamaría,\nMorgan, Travis Birds'
+      valign: 'middle'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 1)
+
+    Button:
+      id: q0o2
+      text: 'Morgan, Amaia\nSantamaría, Travis Birds'
+      valign: 'middle'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 2)
+    
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.1
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Label:
+        canvas.before:
+          Color:
+            rgba: 0, 0, 0, 1
+          Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        id: moneyQ0
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        text: '0€'
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda1q1'
+          root.manager.transition.direction = 'left'
+
+<Ronda1Q1>:
+  name: 'ronda1q1'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 10
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: '¿Cómo se llama el carnet que te acredita como asturiana?'
+
+    Button:
+      id: q0o0
+      text: 'Documento de Identidad del\nPrincipado de Asturias'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 0)
+
+    Button:
+      id: q0o1
+      text: 'Carnet de Asturianía'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 1)
+
+    Button:
+      id: q0o2
+      text: 'Permiso de Identidad\nAsturiana'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 2)
+    
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.1
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Label:
+        canvas.before:
+          Color:
+            rgba: 0, 0, 0, 1
+          Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        id: moneyQ0
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        text: ''
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda1q2'
+          root.manager.transition.direction = 'left'
+
+<Ronda1Q2>:
+  name: 'ronda1q2'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 10
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: '¿Qué idioma nos sirvió para encontrar dónde comer en Taormina?'
+
+    Button:
+      id: q0o0
+      text: 'Francés fluidísimo'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 0)
+
+    Button:
+      id: q0o1
+      text: 'Italiano'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 1)
+
+    Button:
+      id: q0o2
+      text: 'Euskera'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 2)
+    
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.1
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Label:
+        canvas.before:
+          Color:
+            rgba: 0, 0, 0, 1
+          Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        id: moneyQ0
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        text: ''
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda1q3'
+          root.manager.transition.direction = 'left'
+
+<Ronda1Q3>:
+  name: 'ronda1q3'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 10
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: '¿Cuál fue la primera canción que escuchamos en Vitoria?'
+
+    Button:
+      id: q0o0
+      text: "Turnedo"
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 0)
+
+    Button:
+      id: q0o1
+      text: "Don't go breaking my heart"
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 1)
+
+    Button:
+      id: q0o2
+      text: 'No puedo vivir sin ti'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 2)
+    
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.1
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Label:
+        canvas.before:
+          Color:
+            rgba: 0, 0, 0, 1
+          Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        id: moneyQ0
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        text: ''
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda1q4'
+          root.manager.transition.direction = 'left'
+
+<Ronda1Q4>:
+  name: 'ronda1q4'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 10
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 1'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: '¿En qué día fuimos por primera vez al Antzoki juntos?'
+
+    Button:
+      id: q0o0
+      text: '24 de junio'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 0)
+
+    Button:
+      id: q0o1
+      text: '25 de junio'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 1)
+
+    Button:
+      id: q0o2
+      text: '26 de junio'
+      font_name: 'NotoSans-Regular'
+      size_hint: 0.8, 0.06
+      on_press: root.press(self, 2)
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.1
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Label:
+        canvas.before:
+          Color:
+            rgba: 0, 0, 0, 1
+          Line:
+            width: 2
+            rectangle: self.x, self.y, self.width, self.height
+        id: moneyQ0
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        text: ''
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.5 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda2intro'
+          root.manager.transition.direction = 'left'
+
+<Ronda2Intro>:
+  name: 'ronda2intro'
+  
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 20
+    padding: 50
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    Label:
+      id: name_label
+      size_hint: 0.8, 0.4
+      font_size: 16
+      text_size: self.width, None
+      valign: 'middle'
+      halign: 'center'
+      text: ''
+
+    Button:
+      text: 'Volver'
+      size_hint: 0.8, 0.1
+      on_release: 
+        app.root.current = 'ronda2cazadora'
+        root.manager.transition.direction = 'left'
+
+<Ronda2Cazadora>:
+  name: 'ronda2cazadora'
+  
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+  
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 20
+    padding: 50
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+      id: name_label
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'Tu cazador/a es...'
+
+    Label:
+      canvas.before:
+        Color:
+          rgba: 0, 0, 0, 1
+      font_size: 40
+      id: yaiza
+      size_hint: 0.8, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: '¡YAIZA LA QIAGENER!'
+      opacity: 0
+
+    Image:
+      id: qiagener
+      source: 'cazadora.png'
+      opacity: 0
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.8, 0.2
+      pos_hint:{"center_x":0.5, "top": 0.5}
+
+      Button:
+        id: descubrir
+        text: 'Descubrir'
+        disabled: False 
+        size_hint: 0.7, 0.8 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: root.press()
+
+      Button:
+        id: nex
+        text: 'Siguiente'
+        disabled: True
+        size_hint: 0.7, 0.8 
+        pos_hint:{"center_x":0.5, "top": 0.5}
+        on_release: 
+          app.root.current = 'ronda2ofertas'
+          root.manager.transition.direction = 'left'
+
+<Ronda2Ofertas>:
+
+  name: 'ronda2ofertas'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.9
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.3, "top": 0.9}
+
+        Label:
+          background_color: (123/255, 8/255, 1/255, 1)
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.9}
+          text: ''
+
+        Label:
+          background_color: (123/255, 8/255, 1/255, 1)
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.8}
+          text: ''
+
+        Button:
+          id: p2
+          background_color: (123/255, 8/255, 1/255, 1)
+          text: ''
+          disabled: True
+          size_hint: 0.8, 0.1 
+          pos_hint:{"center_x":0.5, "top": 0.7}
+          on_release: root.press('b1')
+
+        Button:
+          id: p3
+          background_color: (123/255, 8/255, 1/255, 1)
+          text: ''
+          disabled: True
+          size_hint: 0.8, 0.1 
+          pos_hint:{"center_x":0.5, "top": 0.6}
+          on_release: root.press('b2')
+
+        Button:
+          id: p4
+          background_color: (123/255, 8/255, 1/255, 1)
+          text: ''
+          disabled: True
+          size_hint: 0.8, 0.1 
+          pos_hint:{"center_x":0.5, "top": 0.5}
+          on_release: root.press('b3')
+
+        Label:
+          background_color: (123/255, 8/255, 1/255, 1)
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.4}
+          text: ''
+
+        Label:
+          background_color: (123/255, 8/255, 1/255, 1)
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text: ''
+
+        Label:
+          background_color: (123/255, 8/255, 1/255, 1)
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.2}
+          text: ''
+
+        Label:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+              
+          id: p1
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: 'CASA'
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.9}
+
+        Button:
+          id: oferta_baja
+          text: 'Oferta Baja'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.oferta_baja()
+
+        Button:
+          id: oferta_alta
+          text: 'Oferta Alta'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.oferta_alta()
+
+        Button:
+          id: nex
+          text: 'Siguiente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q0'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q0>:
+
+  name: 'ronda2q0'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 0.9
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 0.9
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: 'CASA'
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿Qué animal describe nuestra aventura en Córdoba?'
+
+        Button:
+          id: q0o0
+          text: 'Gato'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'Elefante'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'Ajolote'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q1'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q1>:
+
+  name: 'ronda2q1'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: 'CASA'
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿Cómo se llamaba el cráter del Etna por el que casi me despeño?'
+
+        Button:
+          id: q0o0
+          text: 'Cratere del Larghetto'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'La Montagnola'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'Crater Espagueti'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q2'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q2>:
+
+  name: 'ronda2q2'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: 'CASA'
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿Cuál de estas canciones no versionó Travis Birds en el Guggenheim?'
+
+        Button:
+          id: q0o0
+          text: 'Soy rebelde'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'Bésame mucho'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'La canción del velero'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q3'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q3>:
+
+  name: 'ronda2q3'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: 'CASA'
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          on_release:
+            app.root.currect = 'victoria'
+            root.manager.transition.direction = 'left'
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿De qué iba disfrazado cuando dije "No me toques nada"?'
+
+        Button:
+          id: q0o0
+          text: 'Pastor'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'Ratón'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'Guggen, se lo dije a Javi'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q4'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q4>:
+
+  name: 'ronda2q4'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: 'CASA'
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          on_release:
+            app.root.currect = 'victoria'
+            root.manager.transition.direction = 'left'
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿A qué hora cerraba la piscina del Hotel Hesperia de Córdoba?'
+
+        Button:
+          id: q0o0
+          text: 'A las 20:00'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'A las 20:30'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'A las 21:00'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q5'
+            root.manager.transition.direction = 'left'
+    
+<Ronda2Q5>:
+
+  name: 'ronda2q5'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: ''
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          on_release:
+            app.root.current = 'victoria'
+            root.manager.transition.direction = 'left'
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿Cuál de estas listas describe más de mis calzoncillos?'
+
+        Button:
+          id: q0o0
+          text: 'Cabras, Motos, Lunares'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'Lunares, Motos, Cerdos'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'Cerdos, Coches, Cabras'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'ronda2q6'
+            root.manager.transition.direction = 'left'
+
+<Ronda2Q6>:
+
+  name: 'ronda2q6'
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    size_hint: 0.9, 0.96
+    pos_hint:{"center_x":0.5, "top": 0.9}
+
+    Label:
+      background_color: (123/255, 8/255, 1/255, 1)
+      canvas.before:
+        Color:
+          rgba: self.background_color 
+        Rectangle: 
+          size: self.size 
+          pos: self.pos
+        Color:
+          rgba: 0, 0, 0, 1
+        Line:
+          width:2
+          rectangle: self.x, self.y, self.width, self.height
+      id: name_label
+      size_hint: 0.84, 0.1
+      valign: 'middle'
+      halign: 'center'
+      text: 'RONDA 2'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size_hint: 0.9, 0.9
+      pos_hint:{"center_x":0.5, "top": 0.9}
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 0.7
+        pos_hint:{"center_x":0.22, "top": 0.9}
+
+        Label:
+          background_color: 0.8, 0.2, 0.1, 1
+          canvas.before:
+            Color:
+              rgba: self.background_color 
+            Rectangle: 
+              size: self.size 
+              pos: self.pos
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          
+          text: ''
+          color: 0.8, 0.2, 0.1, 1
+          id: p0
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          text: ''
+
+        Button:
+          id: p1
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.8}
+
+        Button:
+          id: p2
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.7}
+
+        Button:
+          id: p3
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.6}
+
+        Button:
+          id: p4
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.5}
+
+        Button:
+          id: p5
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.4}
+
+        Button:
+          id: p6
+          disabled: True
+          background_color: 0.8, 0.2, 0.1, 1
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+
+        Button:
+          id: p7
+          disabled: True
+          text: ''
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "bottom": 0.2}
+
+        Button:
+          background_color: 0.1, 0.7, 0.2, 0.9
+          disabled: True
+          text: ''
+          id: p8
+          size_hint: 0.8, 0.1
+          pos_hint:{"center_x":0.5, "top": 0.1}
+          on_release:
+            app.root.current = 'victoria'
+            root.manager.transition.direction = 'left'
+
+      BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.6, 0.8
+        pos_hint:{"center_x":0.7, "top": 1}
+        spacing: 10
+        
+        Image:
+          id: qiagener
+          source: 'cazadora.png'
+          opacity: 1
+          size_hint: 0.9, 0.9 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+
+        Label:
+          canvas.before:
+            Color:
+              rgba: 0, 0, 0, 1
+            Line:
+              width:2
+              rectangle: self.x, self.y, self.width, self.height
+          id: name_label
+          size_hint: 0.9, 0.3
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          text_size: self.width, None
+          valign: 'middle'
+          halign: 'center'
+          text: '¿Quién te quiere y espera que hayas disfrutado de este quiz?'
+
+        Button:
+          id: q0o0
+          text: 'Maribel'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "bottom": 0.3}
+          on_release: root.press(0)
+
+        Button:
+          id: q0o1
+          text: 'Tu novio'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(1)
+
+        Button:
+          id: q0o2
+          text: 'La cajera borde del BM'
+          font_name: 'NotoSans-Regular'
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: root.press(2)
+
+        Button:
+          id: nex
+          text: 'Siguente'
+          disabled: True
+          font_size: 18
+          size_hint: 0.9, 0.07 
+          pos_hint:{"center_x":0.5, "top": 0.3}
+          on_release: 
+            app.root.current = 'portada'
+            root.manager.transition.direction = 'left'
+
+<Victoria>:
+  name: 'victoria'
+  
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+      source: 'fondo.jpg'
+
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    Label:
+      font_size: 40
+      size_hint: 0.9, 0.2
+      post_hint: {"center_x": 0.5, "top": 0.9}
+      text: 'HAS GANADO!'
+      halign: 'center'
+
+    Label:
+      font_name: 'NotoSans-Regular'
+      font_size: 16
+      text_size: self.width, None
+      size_hint: 0.9, 0.2
+      post_hint: {"center_x": 0.5, "top": 0.75}
+      text: 'Felicidades!!\nNo te voy a dar el dinero pero sí te daré\notro número para la combinación'
+      halign: 'center'
+
+    BoxLayout:
+      orientation: 'horizontal'
+      size: 0.9, 0.6
+      
+      
+      Label:
+        font_size: 60
+        size_hint: 0.3, 0.9
+        post_hint: {"center_x": 0.9, "top": 0.85}
+        text: '9'
+
+      Image:
+        source: 'cazadora.png'
+        
+    Button:
+      text: 'Cerrar'
+      size_hint: 0.5, 0.05
+      pos_hint: {"center_x": 0.5, "top": 0.25}
+      font_name: 'NotoSans-Regular'
+      font_size: 18
+      on_release: root.close_app()

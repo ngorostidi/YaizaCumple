@@ -1,0 +1,59 @@
+<Button>
+  font_name: 'NotoSans-Bold'
+  font_size: 28
+  size_hint: 0.6, 0.4
+  pos_hint: {'center_x': 0.5}
+  background_normal: ''
+  background_color: (123/255, 8/255, 1/255, 1)
+  canvas.before:
+    Color:
+      rgba: 0, 0, 0, 1
+    Line:
+      width:2
+      rectangle: self.x, self.y, self.width, self.height
+
+<TextInput>
+  halign: 'center'
+  valign: 'center'
+# padding : 6,self.height/2 - self.font_size/2,6,6
+  font_name: 'NotoSans-Bold'
+  size_hint: 0.8, 0.2
+  font_size: 20
+  padding: 6, self.height/2-self.font_size/1.5, 6, 6
+  pos_hint: {'center_x': 0.5}
+  
+<Label>
+  font_name: 'NotoSans-Bold'
+  size_hint: 0.8, 0.2
+  font_size: 24
+  pos_hint: {'center_x': 0.5}
+
+<MyLayout>
+
+  canvas.before:
+    Color:
+      rgba: (123/255, 8/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+
+  BoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    spacing: 20
+    padding: 50
+
+    Image:
+      source: 'logo-cazador'
+
+    Label:
+      text: 'Nombre'
+
+    TextInput:
+      multiline: False
+
+    Button:
+      text: 'Nueva Partida'
+      on_release: root.animate_it(self)
+
